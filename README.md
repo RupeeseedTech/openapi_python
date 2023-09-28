@@ -5,8 +5,7 @@ OpenAPI-PYTHON is a Python library for interacting with Trading platform ,that i
 Use the package manager pip to install smartapi-python.
 
 ```
-pip install -r requirements_dev.txt       # for downloading the other required packages
-pip install openapi-python
+pip install -r req.txt       # for downloading the other required packages
 ```
 
 # Usage
