@@ -40,29 +40,7 @@ class APIConnect(object):
     def getValidity(self,valid):
         switcher = {"DAY":"DAY","IOC":"IOC"}
         return switcher.get(valid,"nothing")
-
-    # class TransType(Enum):
-    #     BUY = "B"
-    #     SELL = "S"
-    # class ExchSegment(Enum):
-    #     NSE = "NSEEQ"
-    #     NFO = "NSEFO"
-    #     NCD = "NSECURR"
-    #     BSE = "BSEEQ"
-    #     BFO = "BSEFO"
-    #     BCD = "BSECURR"
-    #     MCX = "MCXCOM"
-    #     NCDEX = "NCDEXCOM"
-    # class ProductType(Enum):
-    #     INTRADAY = "I"
-    #     MARGIN = "M"
-    #     CNC = "C"
-    # class ValidityType(Enum):
-    #     DAY = "Day"
-    #     IOC = "IOC"
-
-    
-
+        
     def callAPI(self,url,params):
         print("callAPI url ==>%s" %(self.API_ENDPOINT+url))
         print("callAPI params ==>%s" % json.dumps(params))
@@ -81,32 +59,8 @@ class APIConnect(object):
         except Exception as e:
             print("callAPI exception json parse-->",e)
             raise e
-        
         return response
     
-    # def tokenGen(self,cli_id):
-    #     data = {
-    #     "entity_id": cli_id,
-    #     "token_id": "aaaaaaaaaaa",
-    #     "source": "W",
-    #     "data": {
-    #         "client_id": cli_id
-    #         }
-    #     }
-        
-    #     responseData = self.callAPI("/AccessTokenGen/index",str(data))
-        
-    #     if responseData.status=="success":
-    #         tokenData = responseData.data
-    #         apiToken = tokenData.token_id
-    #         apiKey = tokenData.lskey
-    #         return responseData.message
-    #     else:
-    #         return responseData.message
-    #     #return responseData
-        
-    # ##### end tokenGen #####
-
     def init(self,endpoint,cli_id,source):
         global API_ENDPOINT, clientID, src  # Access the global variables
         if self.isLengthNotZero(endpoint):
@@ -115,10 +69,6 @@ class APIConnect(object):
             clientID=cli_id
         if self.isLengthNotZero(source):
             src = source
-        
-        self.tokenGen(cli_id)
-
-    
 
     def orderbook(self):
         data = {
