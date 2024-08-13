@@ -31,13 +31,15 @@ data = {'transaction_type':'Buy',
         'validity':'DAY',
         'disc_quantity':'',
         'trigger_price':'',
-        'offline_order':'false'}
+        'offline_order':'false'
+		'token':'access_token'}
 response = openapi.place_order(data)
 print('place order api response --> ',response)
 
 
 #fetch orderbook
-data = openapi.orderbook()
+data = {'token':'access_token'}
+data = openapi.orderbook(data)
 print("orderbook data====",data)
 
 #modify order
@@ -47,14 +49,15 @@ data = { 'order_id':'order_no',
         'validity':'DAY',
         'disc_quantity':'',
         'trigger_price':'',
-        'offline_order':'false'}
+        'offline_order':'false'
+		'token':'access_token'}
 
 response = openapi.modify_order(data)
 print('modify order api response --> ',response)
 
 
 #cancel order
-data = { 'order_id':'order_no fetched from orderbook'}
+data = { 'order_id':'order_no fetched from orderbook','token':'access_token'}
 
 response = openapi.cancel_order(data)
 print('cancel order api response --> ',response)
